@@ -46,9 +46,21 @@ public class Main{
         }
     }
 
+    public static int size(Node node) 
+    {
+        int count=0;
+        for (Node child : node.children) 
+        {
+            count+=size(child);
+        }
+        return count+1;
+    }
+
     public static void main(String args[]){
         Integer []arr = {10, 20, 50, null, 60, null, null, 30, 70, 90, null, 100, null, 110, null, null, null, 40, 80, null, null, null};
         Node root=construct(arr);
         display(root);
+        int res=size(root);
+        System.out.println("Size of the Generic tree = "+res);
     }
 }
