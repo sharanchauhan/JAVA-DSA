@@ -65,6 +65,17 @@ public class Main{
         }
         return Math.max(res, node.data);// At last comparing the maximum of children with the root data
     }
+
+    public static int height(Node node) {
+        int h=-1;
+        for (Node child : node.children) 
+        {
+            int ch=height(child);
+            h=Math.max(h,ch);
+        }
+        h+=1;
+        return h;
+    }
     public static void main(String args[]){
         Integer []arr = {10, 20, 50, null, 60, null, null, 30, 70, 90, null, 100, null, 110, null, null, null, 40, 80, null, null, null};
         Node root=construct(arr);
@@ -72,5 +83,6 @@ public class Main{
         int res=size(root);
         System.out.println("Size of the Generic tree = "+res);
         System.out.println("Maximum of the Generic Tree = "+max(root));
+        System.out.println("Height of the Generi tree = "+height(root));
     }
 }
