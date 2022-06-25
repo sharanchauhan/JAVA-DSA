@@ -9,4 +9,18 @@ public class Main {
         System.out.println("Node Post "+node.data);
       }
 
+      public static void levelOrder(Node node){
+        Queue<Node> q=new ArrayDeque<>();
+        q.add(node);
+        while(q.size()>0)
+        {
+          Node rem=q.remove();
+          System.out.print(rem.data+" ");
+          for(Node child:rem.children)
+          {
+            q.add(child);
+          }
+        }
+        System.out.println(".");
+        }
 }
