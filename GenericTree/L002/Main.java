@@ -1,4 +1,15 @@
+import java.util.*;
+
 public class Main {
+  static class Node{
+    int data;
+    ArrayList<Node> children;
+
+    Node(int data){
+        this.data = data;
+        children = new ArrayList<>();
+    }
+}
     public static void traversals(Node node){
         System.out.println("Node Pre "+node.data);
         for (Node child : node.children) {
