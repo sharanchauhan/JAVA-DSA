@@ -88,4 +88,40 @@ public class Main {
     }
     return new ArrayList<Integer>();
  }
+
+ public static void levelOrderLinewiseZZ(Node node){
+  // write your code here
+  Queue<Node> q=new ArrayDeque<>();
+  Stack<Node> st=new Stack<>();
+  q.add(node);
+  int lvl=1;
+  while(q.size()>0)
+  {
+    int s=q.size();
+    while(s>0)
+    {
+      if(lvl%2!=0)
+      {
+        Node rem=q.remove();
+        System.out.print(rem.data+" ");
+        for (Node child : rem.children) {
+          q.add(child);
+          st.push(child);
+        }
+      }
+      else
+      {
+        Node remq=q.remove();
+        Node rems=st.pop();
+        System.out.print(rems.data+" ");
+        for (Node child : remq.children) {
+          q.add(child);
+        }
+      }
+      s--;
+    }
+    lvl++;
+    System.out.println();
+  }
+}
 }
