@@ -55,7 +55,6 @@ public class Main {
   }
 
   public static boolean find(Node node, int data) {
-    // write your code here
     if(node.data==data)
     {
       return true;
@@ -70,4 +69,23 @@ public class Main {
     }
     return false;
   }
+
+  public static ArrayList<Integer> nodeToRootPath(Node node, int data){
+    if(node.data==data)
+    {
+      ArrayList<Integer> ans = new ArrayList<Integer>();
+      ans.add(node.data);
+      return ans;
+    }
+    for(Node child:node.children)
+    {
+      ArrayList<Integer> a=nodeToRootPath(child,data);
+      if(a.size()>0)
+      {
+        a.add(node.data);
+        return a;
+      }
+    }
+    return new ArrayList<Integer>();
+ }
 }
