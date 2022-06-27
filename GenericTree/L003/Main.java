@@ -24,8 +24,7 @@ public class Main {
         return new ArrayList<>();
     }
 
-    public static int lca(Node node, int d1, int d2) 
-    {
+    public static int lca(Node node, int d1, int d2) {
         ArrayList<Integer> path1, path2;
         path1 = nodeToRootPath(node, d1);
         path2 = nodeToRootPath(node, d2);
@@ -61,5 +60,12 @@ public class Main {
             Node tailNode = getTailNode(slc);
             tailNode.children.add(lc);
         }
+    }
+
+    public static int distanceBetweenNodes(Node node, int d1, int d2) {
+        ArrayList<Integer> p1 = nodeToRootPath(node, d1);
+        ArrayList<Integer> p2 = nodeToRootPath(node, d2);
+        int lc = lca(node, d1, d2);
+        return (p1.indexOf(lc) + p2.indexOf(lc));
     }
 }
