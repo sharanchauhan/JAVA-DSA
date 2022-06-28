@@ -60,6 +60,19 @@ public class Main {
         }
         return root;
     }
+
+    public static void display(Node node) {
+        if(node==null)
+        {
+            return;
+        }
+        System.out.print(node.left==null ? "." : node.left.data);
+        System.out.print(" <- "+node.data+" -> ");
+        System.out.println(node.right==null ? "." : node.right.data);
+
+        display(node.left);
+        display(node.right);
+    }
     public static void main(String[] args) {
         
     }
