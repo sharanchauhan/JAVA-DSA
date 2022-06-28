@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Main {
@@ -112,6 +113,18 @@ public class Main {
         int rht=height(node.right);
         return Math.max(lht, rht)+1;
     }
+
+    public static void levelOrder(Node node) {
+        
+    }
+
+    public static boolean find(Node node, int data){
+        
+      }
+    
+      public static ArrayList<Integer> nodeToRootPath(Node node, int data){
+
+      }
     public static void main(String[] args) {
         Integer arr[]={10,20,40,60,null,null,null,50,70,null,null,80,null,null,30,null,90,100,null,null,null};
         Node root=construct(arr);
