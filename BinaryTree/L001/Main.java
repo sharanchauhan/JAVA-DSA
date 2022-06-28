@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Main {
@@ -115,7 +117,27 @@ public class Main {
     }
 
     public static void levelOrder(Node node) {
-        
+        Queue<Node> q=new ArrayDeque<>();
+        q.add(node);
+        while(q.size()>0)
+        {
+            int s=q.size();
+            while(s>0)
+            {
+                Node rem=q.remove();
+                System.out.print(rem.data+"");
+                if(rem.left!=null)
+                {
+                    q.add(rem.left);
+                }
+                if(rem.right!=null)
+                {
+                    q.add(rem.right);
+                }
+                s--;
+            }
+            System.out.println();
+        }
     }
 
     public static boolean find(Node node, int data){
