@@ -75,23 +75,50 @@ public class Main {
     }
 
     public static int size(Node node) {
-        // write your code here
-      }
-    
-      public static int sum(Node node) {
-        // write your code here
-      }
-    
-      public static int max(Node node) {
-        // write your code here
-      }
-    
-      public static int height(Node node) {
-        // write your code here
-      }
+        if (node==null) {
+            return 0;   
+        }
+        int lsize=size(node.left);
+        int rsize=size(node.right);
+
+        return lsize+rsize+1;
+    }
+
+    public static int sum(Node node) {
+        if (node==null) {
+            return 0;
+        }
+        int lsum=sum(node.left);
+        int rsum=sum(node.right);
+
+        return lsum+rsum+node.data;
+    }
+
+    public static int max(Node node) {
+        if (node==null) {
+            return Integer.MIN_VALUE;
+        }
+        int lmax=max(node.left);
+        int rmax=max(node.right);
+        
+        return Math.max(Math.max(lmax, rmax), node.data);
+    }
+    public static int height(Node node) {
+        if (node==null) {
+            return -1;
+            // Because the node at the lowest level has a height of 0 therefore left and right of that node will be at -1
+        }
+        int lht=height(node.left);
+        int rht=height(node.right);
+        return Math.max(lht, rht)+1;
+    }
     public static void main(String[] args) {
         Integer arr[]={10,20,40,60,null,null,null,50,70,null,null,80,null,null,30,null,90,100,null,null,null};
         Node root=construct(arr);
         display(root);
+        System.out.println("Size = "+size(root));
+        System.out.println("Sum = "+sum(root));
+        System.out.println("Max = "+max(root));
+        System.out.println("Height = "+height(root));
     }
 }
