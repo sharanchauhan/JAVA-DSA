@@ -2,6 +2,7 @@
     "java.project.sourcePaths": [
         "GenericTree/L002",
         "GenericTree/L001",
-        "GenericTree/L003"
+        "GenericTree/L003",
+        "BinaryTree/L001"
     ]
 }
