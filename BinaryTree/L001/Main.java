@@ -73,6 +73,22 @@ public class Main {
         display(node.left);
         display(node.right);
     }
+
+    public static int size(Node node) {
+        // write your code here
+      }
+    
+      public static int sum(Node node) {
+        // write your code here
+      }
+    
+      public static int max(Node node) {
+        // write your code here
+      }
+    
+      public static int height(Node node) {
+        // write your code here
+      }
     public static void main(String[] args) {
         Integer arr[]={10,20,40,60,null,null,null,50,70,null,null,80,null,null,30,null,90,100,null,null,null};
         Node root=construct(arr);
