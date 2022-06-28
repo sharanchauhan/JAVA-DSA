@@ -141,12 +141,52 @@ public class Main {
     }
 
     public static boolean find(Node node, int data){
-        
-      }
+        if(node==null)
+        {
+            return false;
+        }
+        if(node.data==data)
+        {
+            return true;
+        }
+        boolean leftchild=find(node.left, data);
+        if(leftchild==true)
+        {
+            return true;
+        }
+        boolean rightchild=find(node.right,data);
+        if(rightchild==true)
+        {
+            return true;
+        }
+        return false;
+    }
     
-      public static ArrayList<Integer> nodeToRootPath(Node node, int data){
-
-      }
+    public static ArrayList<Integer> nodeToRootPath(Node node, int data){
+        if(node==null)
+        {
+            return new ArrayList<Integer>();
+        }
+        if(node.data==data)
+        {
+            ArrayList<Integer> ans=new ArrayList<>();
+            ans.add(data);
+            return ans;
+        }
+        ArrayList<Integer> leftChild=nodeToRootPath(node.left, data);
+        if(leftChild.size()>0)
+        {
+            leftChild.add(node.data);
+            return leftChild;
+        }
+        ArrayList<Integer> rightChild=nodeToRootPath(node.right, data);
+        if(rightChild.size()>0)
+        {
+            rightChild.add(node.data);
+            return rightChild;
+        }
+        return new ArrayList<>();
+    }
     public static void main(String[] args) {
         Integer arr[]={10,20,40,60,null,null,null,50,70,null,null,80,null,null,30,null,90,100,null,null,null};
         Node root=construct(arr);
