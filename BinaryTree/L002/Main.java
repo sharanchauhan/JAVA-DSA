@@ -62,5 +62,16 @@ public class Main {
         }
         printSingleChildNodes(node.left);
         printSingleChildNodes(node.right);
-      }
+    }
+
+    public static Node removeLeaves(Node node)
+    {
+        if(node==null || (node.left==null && node.right==null))
+        {
+            return null;
+        }
+        node.left=removeLeaves(node.left);
+        node.right=removeLeaves(node.right);
+        return node;
+    }
 }
