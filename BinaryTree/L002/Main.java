@@ -31,4 +31,24 @@ public class Main {
         printKLevelsDown(node.left, k-1);
         printKLevelsDown(node.right, k-1);
     }
+
+    public static void printSingleChild(Node node,Node parent){
+        if(node==null)
+        {
+            return;
+        }
+        if(parent!=null)
+        {
+            if(node==parent.left && parent.right==null)
+            {
+                System.out.println(node.data);
+            }
+            if(null==parent.left && parent.right==node)
+            {
+                System.out.println(node.data);
+            }
+        }
+        printSingleChild(node.left, node);
+        printSingleChild(node.right, node);
+    }
 }
