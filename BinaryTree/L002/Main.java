@@ -51,4 +51,16 @@ public class Main {
         printSingleChildNodes(node.left, node);
         printSingleChildNodes(node.right, node);
     }
+
+    public static void printSingleChildNodes(Node node){
+        if(node == null) return;
+        if(node.left != null && node.right == null){
+            System.out.println(node.left.data);
+        }
+        if(node.left == null && node.right != null){
+            System.out.println(node.right.data);
+        }
+        printSingleChildNodes(node.left);
+        printSingleChildNodes(node.right);
+      }
 }
