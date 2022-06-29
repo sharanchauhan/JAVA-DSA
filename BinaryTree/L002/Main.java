@@ -74,4 +74,25 @@ public class Main {
         node.right=removeLeaves(node.right);
         return node;
     }
+    public static class DiameterPair{
+        int ht,dia;
+        DiameterPair(int ht,int dia){
+          this.ht = ht;
+          this.dia = dia;
+        }
+      }
+      public static DiameterPair diameter(Node node) {
+        if(node == null){
+          return new DiameterPair(-1,-1);
+        }
+    
+        DiameterPair lpair = diameter(node.left);
+        DiameterPair rpair = diameter(node.right);
+    
+        int myDia = lpair.ht + rpair.ht + 2;
+        int myht = Math.max(lpair.ht,rpair.ht)+1;
+        int oDia = Math.max(myDia,Math.max(lpair.dia,rpair.dia));
+    
+        return new DiameterPair(myht,oDia);
+      }
 }
