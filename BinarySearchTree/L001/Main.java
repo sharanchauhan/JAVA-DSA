@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Stack;
 
 public class Main {
@@ -125,4 +127,34 @@ public class Main {
             return find(node.left, data);
         return find(node.right, data);
     }
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        Integer[] arr = new Integer[n];
+        String[] values = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+          if (values[i].equals("n") == false) {
+            arr[i] = Integer.parseInt(values[i]);
+          } else {
+            arr[i] = null;
+          }
+        }
+    
+        int data = Integer.parseInt(br.readLine());
+    
+        Node root = construct(arr);
+    
+        int size = size(root);
+        int sum = sum(root);
+        int max = max(root);
+        int min = min(root);
+        boolean found = find(root, data);
+    
+        System.out.println(size);
+        System.out.println(sum);
+        System.out.println(max);
+        System.out.println(min);
+        System.out.println(found);
+      }
 }
