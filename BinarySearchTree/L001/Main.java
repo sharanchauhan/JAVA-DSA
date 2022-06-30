@@ -87,10 +87,32 @@ public class Main {
     }
 
     public static int sum(Node node) {
-        if(node == null) return 0;
+        if (node == null)
+            return 0;
         int lsum = sum(node.left);
         int rsum = sum(node.right);
         return lsum + rsum + node.data;
-      }
-    
+    }
+
+    public static int max(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        if (node.right != null) {
+            return max(node.right);
+        } else {
+            return node.data;
+        }
+    }
+
+    public static int min(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        if (node.left != null) {
+            return min(node.left);
+        } else {
+            return node.data;
+        }
+    }
 }
