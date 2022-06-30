@@ -128,6 +128,20 @@ public class Main {
         return find(node.right, data);
     }
 
+    public static Node add(Node node, int data) {
+        if(node == null){
+            return new Node(data,null,null);
+        }
+
+        if(data < node.data){
+            node.left = add(node.left,data);
+        }else if(data > node.data){
+            node.right = add(node.right,data);
+        }
+
+        return node;
+    }
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
