@@ -129,17 +129,43 @@ public class Main {
     }
 
     public static Node add(Node node, int data) {
-        if(node == null){
-            return new Node(data,null,null);
+        if (node == null) {
+            return new Node(data, null, null);
         }
 
-        if(data < node.data){
-            node.left = add(node.left,data);
-        }else if(data > node.data){
-            node.right = add(node.right,data);
+        if (data < node.data) {
+            node.left = add(node.left, data);
+        } else if (data > node.data) {
+            node.right = add(node.right, data);
         }
 
         return node;
+    }
+
+    public static Node remove(Node node, int data) {
+        if (node == null) {
+            return null;
+        } else if (data < node.data) {
+            node.left = remove(node.left, data);
+            return node;
+        } else if (node.data < data) {
+            node.right = remove(node.right, data);
+            return node;
+        } else { // found the node
+            Node lchild = node.left, rchild = node.right;
+            if (lchild == null && rchild == null) {
+                return null;
+            } else if (lchild == null) {
+                return rchild;
+            } else if (rchild == null) {
+                return lchild;
+            } else {
+                int maxVal = max(lchild);
+                node.data = maxVal;
+                node.left = remove(lchild, maxVal);
+                return node;
+            }
+        }
     }
 
     public static void main(String[] args) throws Exception {
@@ -148,27 +174,27 @@ public class Main {
         Integer[] arr = new Integer[n];
         String[] values = br.readLine().split(" ");
         for (int i = 0; i < n; i++) {
-          if (values[i].equals("n") == false) {
-            arr[i] = Integer.parseInt(values[i]);
-          } else {
-            arr[i] = null;
-          }
+            if (values[i].equals("n") == false) {
+                arr[i] = Integer.parseInt(values[i]);
+            } else {
+                arr[i] = null;
+            }
         }
-    
+
         int data = Integer.parseInt(br.readLine());
-    
+
         Node root = construct(arr);
-    
+
         int size = size(root);
         int sum = sum(root);
         int max = max(root);
         int min = min(root);
         boolean found = find(root, data);
-    
+
         System.out.println(size);
         System.out.println(sum);
         System.out.println(max);
         System.out.println(min);
         System.out.println(found);
-      }
+    }
 }
