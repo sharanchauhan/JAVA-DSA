@@ -77,4 +77,12 @@ public class Main {
         display(node.left);
         display(node.right);
     }
+
+    public static int size(Node node) {
+        if (node == null)
+            return 0;
+        int lsize = size(node.left);
+        int rsize = size(node.right);
+        return lsize + rsize + 1;
+    }
 }
