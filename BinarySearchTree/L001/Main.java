@@ -115,4 +115,14 @@ public class Main {
             return node.data;
         }
     }
+
+    public static boolean find(Node node, int data) {
+        if (node == null)
+            return false;
+        if (node.data == data)
+            return true;
+        if (data < node.data)
+            return find(node.left, data);
+        return find(node.right, data);
+    }
 }
