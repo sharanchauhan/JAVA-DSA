@@ -27,5 +27,6 @@ public class Highest_Freq_Character {
             }
         }
         System.out.println(maxFch);
+        s.close();
     }
 }
