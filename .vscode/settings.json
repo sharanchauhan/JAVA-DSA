@@ -5,6 +5,7 @@
         "GenericTree/L003",
         "BinaryTree/L001",
         "BinaryTree/L002",
-        "BinarySearchTree/L001"
+        "BinarySearchTree/L001",
+        "HashMap"
     ]
 }
