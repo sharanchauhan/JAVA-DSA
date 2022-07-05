@@ -168,6 +168,20 @@ public class Main {
         }
     }
 
+    static int sum = 0;
+
+    public static void rwsol(Node node) {
+        // write your code here
+        if (node == null) {
+            return;
+        }
+        rwsol(node.right);
+        int temp = node.data;
+        node.data = sum;
+        sum += temp;
+        rwsol(node.left);
+    }
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
