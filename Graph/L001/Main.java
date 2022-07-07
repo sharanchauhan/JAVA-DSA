@@ -27,6 +27,20 @@ public class Main {
         return false;
     }
 
+    public static void printAllPath(ArrayList<Edge>[] graph,int vtx,int dest,boolean vis[],String psf){
+        if(vtx == dest) { System.out.println(psf); return; } //  check
+
+        vis[vtx] = true; //  visited mark
+
+        for(Edge e : graph[vtx]){
+            if(vis[e.nbr] == false){ // unvisited nbr
+                printAllPath(graph,e.nbr,dest,vis,psf+e.nbr);
+            }
+        }
+
+        vis[vtx] = false; //  visited unmark
+    }
+
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int nvtces = s.nextInt();
@@ -47,6 +61,7 @@ public class Main {
                 System.out.println(e.src + "->" + e.nbr);
             }
         }
+        
         s.close();
     }
 }
