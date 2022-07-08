@@ -61,7 +61,7 @@ public class Main {
                 System.out.println(e.src + "->" + e.nbr);
             }
         }
-        
+
         s.close();
     }
 }

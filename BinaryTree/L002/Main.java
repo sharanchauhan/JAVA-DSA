@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Main {
     public static class Node
     {
@@ -95,4 +98,34 @@ public class Main {
     
         return new DiameterPair(myht,oDia);
       }
+
+    public static ArrayList<Integer> leftView(Node root)
+    {
+      // Your code here
+      if(root==null)
+      {
+          return null;
+      }
+      ArrayList<Integer> ans=new ArrayList<>();
+      LinkedList<Node> qu=new LinkedList<>();
+      qu.addLast(root);
+      while(qu.size()!=0)
+      {
+          int s=qu.size();
+          ans.add(qu.getFirst().data);
+          while(s-->0)
+          {
+              Node rem=qu.removeFirst();
+              if(rem.left!=null)
+              {
+                  qu.addLast(rem.left);
+              }
+              if(rem.right!=null)
+              {
+                  qu.addLast(rem.right);
+              }
+          }
+      }
+      return ans;
+    }
 }
