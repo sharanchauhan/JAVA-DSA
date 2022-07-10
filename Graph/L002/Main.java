@@ -148,6 +148,7 @@ public class Main {
         // System.out.println(comps);
 
         // Lines for main function to check wether the graph is connected or not
+        // If there is a single component of the graph then all vertices are connected and therefore the graph is connected
         // ArrayList<ArrayList<Integer>> comps = getAllComponents(graph);
         // if (comps.size() == 1) {
         //     System.out.println("true");
