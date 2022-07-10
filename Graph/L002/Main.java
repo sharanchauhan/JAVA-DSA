@@ -118,4 +118,41 @@ public class Main {
         }
         visited[src] = false;
     }
+
+    public static ArrayList<ArrayList<Integer>> getAllComponents(ArrayList<Edge>[] graph) {
+        boolean visited[] = new boolean[graph.length];
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
+        for (int i = 0; i < visited.length; i++) {
+            if (visited[i] == false) {
+                ArrayList<Integer> comp = new ArrayList<Integer>();
+                getComponents(graph, visited, i, comp);
+                ans.add(comp);
+            }
+        }
+        return ans;
+    }
+
+    public static void getComponents(ArrayList<Edge>[] graph, boolean visited[], int src, ArrayList<Integer> comp) {
+        visited[src] = true;
+        comp.add(src);
+        for (Edge e : graph[src]) {
+            if (visited[e.nbr] == false) {
+                getComponents(graph, visited, e.nbr, comp);
+            }
+        }
+    }
+
+    public static void function() {
+        // Lines for main function to get all the components of the graph given
+        // ArrayList<ArrayList<Integer>> comps = getAllComponents(graph);
+        // System.out.println(comps);
+
+        // Lines for main function to check wether the graph is connected or not
+        // ArrayList<ArrayList<Integer>> comps = getAllComponents(graph);
+        // if (comps.size() == 1) {
+        //     System.out.println("true");
+        // } else {
+        //     System.out.println("false");
+        // }
+    }
 }
