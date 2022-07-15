@@ -20,12 +20,26 @@ public class Main {
         return mem[n] = ans;
     }
 
+    public static int fib_tab(int n) {
+        int[] mem = new int[n + 1];
+
+        for (int i = 0; i <= n; i++) {
+            if (i == 0 || i == 1) {
+                mem[i] = i;
+            } else {
+                mem[i] = mem[i - 1] + mem[i - 2];
+            }
+        }
+        return mem[n];
+    }
+
     public static void main(String args[]) {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
 
         System.out.println(fib_rec(n));
         System.out.println(fib_mem(n, new int[n + 1]));
+        System.out.println(fib_tab(n));
         scn.close();
     }
 }
