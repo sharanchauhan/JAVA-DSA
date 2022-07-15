@@ -33,6 +33,19 @@ public class Main {
         return mem[n];
     }
 
+    public static int fib_optiTab(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        int f = 0, s = 1;
+        for (int i = 2; i <= n; i++) {
+            int t = f + s;
+            f = s;
+            s = t;
+        }
+        return s;
+    }
+
     public static void main(String args[]) {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
@@ -40,6 +53,7 @@ public class Main {
         System.out.println(fib_rec(n));
         System.out.println(fib_mem(n, new int[n + 1]));
         System.out.println(fib_tab(n));
+        System.out.println(fib_optiTab(n));
         scn.close();
     }
 }
