@@ -11,6 +11,7 @@ class Main {
         {
             arr[i]=s.nextInt();
         }
+        s.close();
         int dp[]=new int[n+1];
         dp[n]=1;
         for(int i=n-1;i>=0;i--)
