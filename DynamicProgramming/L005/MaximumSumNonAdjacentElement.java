@@ -21,5 +21,6 @@ class Main {
             exc=nexc;
         }
         System.out.println(Math.max(inc,exc));
+        s.close();
     }
 }
