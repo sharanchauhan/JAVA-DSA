@@ -1,7 +1,6 @@
-import java.io.*;
 import java.util.*;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) throws Exception {
         Scanner s=new Scanner(System.in);
